@@ -36,7 +36,6 @@ public class CardatabaseApplication implements CommandLineRunner {
 		Owner owner1 = new Owner("John", "Johnson");
 		Owner owner2 = new Owner("Mary", "Robinson");
 		// oRepository.save(owner1);
-		
 		// oRepository.save(owner2);
 		oRepository.saveAll(Arrays.asList(owner1, owner2));
 
