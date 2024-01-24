@@ -1,17 +1,16 @@
 package com.packt.cardatabase;
 
-import java.util.Arrays;
-
+import com.packt.cardatabase.domain.Car;
+import com.packt.cardatabase.domain.CarRepository;
+import com.packt.cardatabase.domain.Owner;
+import com.packt.cardatabase.domain.OwnerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.packt.cardatabase.domain.Car;
-import com.packt.cardatabase.domain.CarRepository;
-import com.packt.cardatabase.domain.Owner;
-import com.packt.cardatabase.domain.OwnerRepository;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class CardatabaseApplication implements CommandLineRunner {
@@ -37,6 +36,7 @@ public class CardatabaseApplication implements CommandLineRunner {
 		Owner owner1 = new Owner("John", "Johnson");
 		Owner owner2 = new Owner("Mary", "Robinson");
 		// oRepository.save(owner1);
+		
 		// oRepository.save(owner2);
 		oRepository.saveAll(Arrays.asList(owner1, owner2));
 
