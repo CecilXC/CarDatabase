@@ -1,5 +1,7 @@
 package com.packt.cardatabase;
 
+import com.packt.cardatabase.domain.AppUser;
+import com.packt.cardatabase.domain.AppUserRepository;
 import com.packt.cardatabase.domain.Car;
 import com.packt.cardatabase.domain.CarRepository;
 import com.packt.cardatabase.domain.Owner;
@@ -20,9 +22,13 @@ public class CardatabaseApplication implements CommandLineRunner {
 
 	private final OwnerRepository oRepository;
 
-	public CardatabaseApplication(CarRepository repository, OwnerRepository oRepository) {
+	private final AppUserRepository uRepository;
+
+	public CardatabaseApplication(CarRepository repository, OwnerRepository oRepository,
+			AppUserRepository uRepository) {
 		this.repository = repository;
 		this.oRepository = oRepository;
+		this.uRepository = uRepository;
 	}
 
 	public static void main(String[] args) {
@@ -47,6 +53,13 @@ public class CardatabaseApplication implements CommandLineRunner {
 		for (Car car : repository.findAll()) {
 			logger.info("brand: {}, model: {}", car.getBrand(), car.getModel());
 		}
+
+		// Username: user, password: user
+		uRepository.save(new AppUser("user",
+				"$2a$10$NVM0n8ElaRgg7zWO1CxUdei7vWoPg91Lz2aYavh9.f9q0e4bRadue", "USER"));
+		// Username: admin, password: admin
+		uRepository.save(new AppUser("admin",
+				"$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9.mP9vpMu0ssKi8GW", "ADMIN"));
 	}
 
 }
