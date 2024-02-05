@@ -45,8 +45,9 @@ public class JwtService {
                     .parseClaimsJws(token.replace(PREFIX, ""))
                     .getBody()
                     .getSubject();
-            if (user != null)
+            if (user != null) {
                 return user;
+            }
         }
         return null;
     }
