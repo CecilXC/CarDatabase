@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 public class JwtService {
     static final long EXPIRATIONTIME = 86400000;
     // 1 day in ms. Should be shorter in production.
-    static final String PREFIX = "Bearer";
+    static final String PREFIX = "Bearer ";
     // Generate secret key. Only for demonstration purposes.
     // In production, you should read it from the application
     // configuration.
