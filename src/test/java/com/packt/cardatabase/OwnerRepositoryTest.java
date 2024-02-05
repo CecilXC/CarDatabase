@@ -59,4 +59,16 @@ class OwnerRepositoryTest {
          */
         assertThat(repository.findByFirstname("Lucy")).isPresent();
     }
+
+    @Test
+    void deleteOweners() {
+        repository.save(new Owner("Lisa", "Morrison"));
+        repository.deleteAll();
+        /**
+         * Chained AssertJ assertions should be simplified to the corresponding
+         * dedicated assertion (java:S5838)
+         */
+        // assertThat(repository.count()).isEqualTo(0);
+        assertThat(repository.count()).isZero();
+    }
 }
