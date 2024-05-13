@@ -37,6 +37,7 @@ public class ImageController {
         ImageWriter imageWriter = null;
         String imageFormatString = "";
 
+        
         // D:\Workspace\IdeaProjects\cardatabase\photos\chahua387.tif
         try {
             // Path path = Paths.get("/photos/chahua387.tif");
