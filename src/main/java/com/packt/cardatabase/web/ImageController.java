@@ -15,6 +15,7 @@ import javax.imageio.spi.IIORegistry;
 import javax.imageio.spi.ImageWriterSpi;
 import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
+import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -43,13 +44,12 @@ public class ImageController {
         try {
             // Path path = Paths.get("/photos/chahua387.tif");
             Path path = Paths.get(imagePathString);
-
             inputStream =Files.newInputStream(path);
+            outputStream = new BufferedOutputStream(response.getOutputStream());
         } catch (Exception e) {
             System.out.println("An error occurred while trying to read the image file");
             e.printStackTrace();
         }
-        
         IIORegistry registry = IIORegistry.getDefaultInstance();
         Iterator<ImageWriterSpi> serviceProviders = registry.getServiceProviders(ImageWriterSpi.class, false);
         while (serviceProviders.hasNext()) {
